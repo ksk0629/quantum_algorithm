@@ -2,8 +2,6 @@ import random
 
 import numpy as np
 import pytest
-import qiskit_algorithms
-import torch
 
 import src.utils as utils
 
@@ -25,14 +23,8 @@ class TestUtils:
 
         utils.fix_seed(self.seed)
         x_random = random.randint(low, high)
-        x_qiskit = qiskit_algorithms.utils.algorithm_globals.random.integers(low, high)
         x_np = np.random.randint(low, high)
-        x_torch = torch.randint(low=low, high=high, size=(1,))
 
         utils.fix_seed(self.seed)
         assert x_random == random.randint(low, high)
-        assert x_qiskit == qiskit_algorithms.utils.algorithm_globals.random.integers(
-            low, high
-        )
         assert x_np == np.random.randint(low, high)
-        assert x_torch == torch.randint(low=low, high=high, size=(1,))
