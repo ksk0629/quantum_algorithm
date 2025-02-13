@@ -40,3 +40,13 @@ def get_unitary(
     copy_circuit = qiskit.transpile(copy_circuit, simulator)
     result = simulator.run(copy_circuit).result()
     return result.get_unitary(copy_circuit)
+
+
+def get_binary(x: int, num_bits: int) -> str:
+    """Get a binary exprestion of the given integer x with num_bits digits.
+
+    :param int x: integer
+    :param int num_bits: number of bits
+    :return str: binary expression of x
+    """
+    return format(x, f"0{num_bits}b")
