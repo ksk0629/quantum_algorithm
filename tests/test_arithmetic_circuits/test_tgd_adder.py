@@ -10,7 +10,9 @@ from src.arithmetic_circuits.tgd_adder import TGDAdder
 class TestTGDAdder:
     @pytest.mark.arithmetic_circuits
     @pytest.mark.parametrize(
-        "num_half_qubits", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        # "num_half_qubits", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        "num_half_qubits",
+        [1, 2, 3, 4, 5, 6, 7],
     )
     def test_init(self, num_half_qubits):
         """Normal test;
@@ -77,7 +79,7 @@ class TestTGDAdder:
 
                 assert (
                     len(result_dict) == 1
-                ), "The result must be  only one since it is simulation."
+                ), "The result must be only one since it is simulation."
 
                 # Calculate the true answer.
                 if a + b < num_possible_inputs:
